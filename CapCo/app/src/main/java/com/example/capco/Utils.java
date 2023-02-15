@@ -1,4 +1,4 @@
-package com.example.javabasics;
+package com.example.capco;
 
 public class Utils {
     // Static keyword: effectivily a global variable. Exists even if I have no Caps at all. I should be able to call this without having to create a Cap

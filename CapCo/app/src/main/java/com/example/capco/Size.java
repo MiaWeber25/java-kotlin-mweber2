@@ -1,4 +1,4 @@
-package com.example.javabasics;
+package com.example.capco;
 
 public enum Size {
     SMALL,

@@ -1,4 +1,4 @@
-package com.example.javabasics;
+package com.example.capco;
 
 public class Hat implements AutoCloseable{ // Promise that you are implementing a close method to clean up
     private boolean isOld;
