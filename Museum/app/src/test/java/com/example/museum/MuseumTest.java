@@ -31,7 +31,7 @@ public class MuseumTest {
 
     @Test
     public void getTicketPrice() {
-        assertEquals(2.5, m.getTicketPrice(), 0.001); // Don't forget epsilon!
+        assertEquals(2.5, m.getTicketPrice(), 0.001); // Don't forget epsilon
     }
 
     @Test
