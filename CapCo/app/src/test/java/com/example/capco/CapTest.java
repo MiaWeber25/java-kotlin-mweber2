@@ -68,4 +68,15 @@ public class CapTest {
         assertEquals("My Label", cap.getLabel());
 
     }
+    @Test
+    public void toJSON() throws Exception {
+        cap = new Cap("My Label", Size.LARGE);
+
+        ObjectMapper mapper = new ObjectMapper();
+        String json  = mapper.writeValueAsString(cap);
+        String expect = "{\"label\":\"My Label\",\"size\":\"LARGE\"}";
+
+        assertEquals(expect,json);
+    }
+
 }
