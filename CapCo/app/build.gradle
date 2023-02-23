@@ -9,7 +9,18 @@ apply plugin: 'org.springframework.boot'
 android {
     namespace 'com.example.capco'
     compileSdk 33
-
+    packagingOptions {
+        resources.excludes.add("META-INF/spring.tooling")
+        resources.excludes.add("META-INF/spring.handlers")
+        resources.excludes.add("META-INF/spring.factories")
+        resources.excludes.add("META-INF/spring-configuration-metadata.json")
+        resources.excludes.add("META-INF/license.txt")
+        resources.excludes.add("META-INF/DEPENDENCIES")
+        resources.excludes.add("META-INF/web-fragment.xml")
+        resources.excludes.add("META-INF/additional-spring-configuration-metadata.json")
+        resources.excludes.add("META-INF/spring.schemas")
+        resources.excludes.add("META-INF/notice.txt")
+    }
     defaultConfig {
         applicationId "com.example.capco"
         minSdk 33
@@ -47,6 +58,7 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '[2.14,3)'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '[2.14,3)'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '[2.14,3)'
+
 
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '[2.7,3)'
     implementation 'org.springframework.boot:spring-boot-starter'
