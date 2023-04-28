@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="From currency:"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/editTextFrom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To currency:"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/editTextTo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount:"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/editTextAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Result:"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/editTextResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:enabled="false"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/buttonConvert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convert"
+            android:textSize="18sp" />
+
+    </LinearLayout>
