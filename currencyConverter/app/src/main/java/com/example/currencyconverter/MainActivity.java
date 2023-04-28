@@ -71,9 +71,42 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                exchangeRate = getExchangeRate(from, to);
-                double result = amount * exchangeRate;
-                editTextResult.setText(String.format("%.2f", result));
+                if (editTextFrom.getText().toString() == "USD" && editTextTo.getText().toString() == "EUR") {
+                    exchangeRate = 0.907;
+                    double result = amount * exchangeRate;
+                    editTextResult.setText(String.format("%.2f", result));
+                }
+                else if (editTextFrom.getText().toString() == "USD" && editTextTo.getText().toString() == "JPY") {
+                    exchangeRate = 136.165;
+                    double result = amount * exchangeRate;
+                    editTextResult.setText(String.format("%.2f", result));
+                }
+                else if (editTextFrom.getText().toString() == "EUR" && editTextTo.getText().toString() == "USD") {
+                    exchangeRate = 1.102;
+                    double result = amount * exchangeRate;
+                    editTextResult.setText(String.format("%.2f", result));
+                }
+                else if (editTextFrom.getText().toString() == "EUR" && editTextTo.getText().toString() == "JPY") {
+                    exchangeRate = 150.092;
+                    double result = amount * exchangeRate;
+                    editTextResult.setText(String.format("%.2f", result));
+                }
+                else if (editTextFrom.getText().toString() == "JPY" && editTextTo.getText().toString() == "USD") {
+                    exchangeRate = 0.007;
+                    double result = amount * exchangeRate;
+                    editTextResult.setText(String.format("%.2f", result));
+                }
+                else if (editTextFrom.getText().toString() == "JPY" && editTextTo.getText().toString() == "EUR") {
+                    exchangeRate = 0.006;
+                    double result = amount * exchangeRate;
+                    editTextResult.setText(String.format("%.2f", result));
+                }
+                else {
+                    // otherwise, just use random exchange rate.
+                    exchangeRate = getExchangeRate(from, to);
+                    double result = amount * exchangeRate;
+                    editTextResult.setText(String.format("%.2f", result));
+                }
             }
         });
     }
@@ -82,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         // Implement your currency exchange rate retrieval logic here
         // This could be done by calling an API, querying a database, or any other means
         // For simplicity, we will return a random exchange rate between 0.5 and 2.0
+
         return ThreadLocalRandom.current().nextDouble(0.5, 2.0);
     }
 }
