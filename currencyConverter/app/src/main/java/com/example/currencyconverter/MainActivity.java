@@ -2,45 +2,51 @@ package com.example.currencyconverter;
 
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.currencyconverter.databinding.ActivityMainBinding;
-
-import android.view.Menu;
-import android.view.MenuItem;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import java.text.DecimalFormat;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText editTextFrom;
+    public EditText getFrom() {
+        return editTextFrom;
+    }
     private EditText editTextTo;
+    public EditText getTo() {
+        return editTextTo;
+    }
     private EditText editTextAmount;
+
+    public EditText getAmount() {
+        return editTextAmount;
+    }
     private EditText editTextResult;
+
+    public EditText getResult() {
+        return editTextResult;
+    }
     private Button buttonConvert;
+
+    public Button getButton() {
+        return buttonConvert;
+    }
 
     private double exchangeRate;
 
+    public double getRate() {
+        return exchangeRate;
+    }
+
+    /*double calculate(double amount, double exchangeRate) {
+        return amount * exchangeRate;
+    }*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,40 +77,41 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                if (editTextFrom.getText().toString() == "USD" && editTextTo.getText().toString() == "EUR") {
+                if (from.equals("USD") && to.equals("EUR")) {
+                    Util.calculate(amount, exchangeRate);
                     exchangeRate = 0.907;
-                    double result = amount * exchangeRate;
+                    double result = Util.calculate(amount, exchangeRate);
                     editTextResult.setText(String.format("%.2f", result));
                 }
-                else if (editTextFrom.getText().toString() == "USD" && editTextTo.getText().toString() == "JPY") {
+                else if (from.equals("USD") && to.equals("JPY")) {
                     exchangeRate = 136.165;
-                    double result = amount * exchangeRate;
+                    double result =Util.calculate(amount, exchangeRate);
                     editTextResult.setText(String.format("%.2f", result));
                 }
-                else if (editTextFrom.getText().toString() == "EUR" && editTextTo.getText().toString() == "USD") {
+                else if (from.equals("EUR") && to.equals("USD")) {
                     exchangeRate = 1.102;
-                    double result = amount * exchangeRate;
+                    double result = Util.calculate(amount, exchangeRate);
                     editTextResult.setText(String.format("%.2f", result));
                 }
-                else if (editTextFrom.getText().toString() == "EUR" && editTextTo.getText().toString() == "JPY") {
+                else if (from.equals("EUR") && to.equals("JPY")) {
                     exchangeRate = 150.092;
-                    double result = amount * exchangeRate;
+                    double result = Util.calculate(amount, exchangeRate);
                     editTextResult.setText(String.format("%.2f", result));
                 }
-                else if (editTextFrom.getText().toString() == "JPY" && editTextTo.getText().toString() == "USD") {
+                else if (from.equals("JPY") && to.equals("USD")) {
                     exchangeRate = 0.007;
-                    double result = amount * exchangeRate;
+                    double result = Util.calculate(amount, exchangeRate);
                     editTextResult.setText(String.format("%.2f", result));
                 }
-                else if (editTextFrom.getText().toString() == "JPY" && editTextTo.getText().toString() == "EUR") {
+                else if (from.equals("JPY") && to.equals("EUR")) {
                     exchangeRate = 0.006;
-                    double result = amount * exchangeRate;
+                    double result = Util.calculate(amount, exchangeRate);
                     editTextResult.setText(String.format("%.2f", result));
                 }
                 else {
                     // otherwise, just use random exchange rate.
                     exchangeRate = getExchangeRate(from, to);
-                    double result = amount * exchangeRate;
+                    double result = Util.calculate(amount, exchangeRate);
                     editTextResult.setText(String.format("%.2f", result));
                 }
             }
