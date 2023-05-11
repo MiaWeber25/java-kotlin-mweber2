@@ -29,7 +29,7 @@ Coursework for CSCI 310 Advanced Programming- Java and Kotlin
 | Name | Currency Converter Application in Kotlin |
 | Description | This Kotlin app converts currency between USD, EUR, and JPY. |
 | Due Date | 11-May-2023 |
-| Location | LOCATION HERE |
+| Location | https://github.com/MiaWeber25/java-kotlin-mweber2/tree/main/currencyConverterKotlin |
 
 ### Basic Java Application
 
