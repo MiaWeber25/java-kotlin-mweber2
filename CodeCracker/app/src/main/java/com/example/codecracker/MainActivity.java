@@ -11,6 +11,7 @@ import android.view.View;
 import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.codecracker.databinding.ActivityMainBinding;
+import com.google.android.material.slider.Slider;
 
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ArrayList<String> result = new ArrayList<>();
                 Integer numThreads = 5;
-                //CrackThread oneThrad = new CrackThread(result, seekBarValue.toInteger()
+                //CrackThread oneThread = new CrackThread(result, seekBarValue.toInteger()
                 int chunk = Math.round(99999/numThreads);
                 for (Integer i=0; i<99999;) {
                     int end = i+chunk<=99999? i+chunk:99999; // To account for potential rounding errors (sometimes you might get 6 threads)
