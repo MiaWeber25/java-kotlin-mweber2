@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private SeekBar seekBarValue;
+    Integer selectedValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +44,33 @@ public class MainActivity extends AppCompatActivity {
         buttonDecrypt = findViewById(R.id.buttonDecrypt);
         textViewDecryptedCode = findViewById(R.id.textViewDecryptedCode);
         seekBarValue = findViewById(R.id.seekBarValue);
+        final TextView textViewSelectedValue = findViewById(R.id.textViewSelectedValue);
+
+
+        seekBarValue.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                selectedValue = progress;
+                textViewSelectedValue.setText(String.valueOf(selectedValue));
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Not used in this implementation
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Not used in this implementation
+            }
+
+            });
 
         buttonDecrypt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ArrayList<String> result = new ArrayList<>();
-                Integer numThreads = 5;
+                //Integer numThreads = 5; // WORKING!!
+                Integer numThreads = selectedValue;
                 //CrackThread oneThread = new CrackThread(result, seekBarValue.toInteger()
                 int chunk = Math.round(99999/numThreads);
                 for (Integer i=0; i<99999;) {
