@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 for (Integer i=0; i<99999;) {
                     int end = i+chunk<=99999? i+chunk:99999; // To account for potential rounding errors (sometimes you might get 6 threads)
                     CrackThread newThread = new CrackThread(result, i, end, editTextMd5Hash.getText().toString());
+                    //optimization: add threads to arrayList to exit safely out of loop if hash isn't present in search space
                     newThread.start();
                     i=end+1;
                 }
